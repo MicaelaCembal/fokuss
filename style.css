@@ -38,8 +38,7 @@ nav{
 .brand img{width:40px;height:40px}
 .brand .logo-word{font-size:30px;color:var(--ink)}
 .brand .logo-word b{color:var(--purple);font-weight:600}
-.logo-img { height: 32px; width: auto; margin-left: 5px; } /* Tu logo */
-.nav-links{display:flex;align-items:center;gap:34px}
+.brand .logo-img { height: 32px; width: auto; margin-left: 5px; }.nav-links{display:flex;align-items:center;gap:34px}
 .nav-links a{font-weight:600;font-size:15px;color:var(--ink-soft);opacity:.85;transition:.2s}
 .nav-links a:hover{opacity:1;color:var(--purple)}
 .nav-cta{
@@ -82,8 +81,18 @@ h1 .grad{
 }
 .btn-ghost:hover{background:#fff}
 .hero-art{position:relative;display:flex;justify-content:center;align-items:center;min-height:460px}
-.foki{width:330px;max-width:78vw;z-index:3;filter:drop-shadow(0 30px 40px rgba(76,45,141,.4))}
+.foki{
+  width: auto;       /* Dejamos que el alto controle el ancho proporcional */
+  height: 500px;     /* Aumentamos considerablemente el alto de la imagen */
+  max-width: none;   /* Quitamos la restricción anterior */
+  z-index:3;
+  filter:drop-shadow(0 30px 40px rgba(76,45,141,.4));
+}
+
+/* Ajuste responsivo para pantallas medianas */
 @media(max-width:900px){
+  .foki{ height: 400px; } /* Reducimos ligeramente en tabletas */
+}@media(max-width:900px){
   .hero-in{grid-template-columns:1fr;text-align:center}
   .lead{margin-left:auto;margin-right:auto}
   .hero-cta{justify-content:center}
@@ -144,13 +153,32 @@ section{position:relative}
 }
 
 /* nosotras */
-.team{background:linear-gradient(160deg,#2B1958,#4A2D8D);color:#fff;border-radius:32px;padding:60px 50px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.team::before{content:"";position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(223,169,255,.18)}
+.team{
+  background:linear-gradient(160deg,#2B1958,#4A2D8D);
+  color:#fff;
+  border-radius:32px;
+  padding:60px 50px;
+  box-shadow:var(--shadow);
+  position:relative;
+  overflow: visible; /* Cambiado de 'hidden' a 'visible' para que Foki sobresalga */
+}.team::before{content:"";position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(223,169,255,.18)}
 .team .h2{color:#fff;position:relative}
 .team p{font-size:17.5px;line-height:1.7;opacity:.92;margin-top:18px;max-width:760px;position:relative}
-.team .foki-mini{position:absolute;right:36px;top:36px;width:90px;opacity:.95}
-@media(max-width:700px){.team{padding:40px 26px}.team .foki-mini{display:none}}
-
+.team .foki-mini{
+  position: absolute;
+  right: -130px;   /* Movemos la imagen hacia afuera de la tarjeta, a la derecha */
+  top: -80px;      /* Movemos la imagen hacia arriba para que sobresalga por encima */
+  width: 450px;    /* Aumentamos drásticamente el tamaño de la imagen */
+  height: auto;
+  opacity: 1;      /* Subimos la opacidad para que sea más nítida */
+  pointer-events: none; /* Evita que la imagen interfiera con el texto si la tapa */
+  z-index: 10;     /* Aseguramos que esté por encima de la tarjeta */
+}/* Ocultamos el Foki gigante en móviles para que no tape el contenido */
+@media(max-width:992px){
+  .team .foki-mini{
+    display: none; /* O puedes cambiar el tamaño/posición: width: 150px; right: 20px; top: -50px; */
+  }
+}
 /* CTA */
 .cta{padding:110px 0}
 .cta-card{
