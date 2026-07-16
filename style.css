@@ -26,7 +26,7 @@ body{
 a{text-decoration:none;color:inherit}
 .logo-word{font-family:'Fredoka',sans-serif;font-weight:600;letter-spacing:-.5px}
 
-/* NAV */
+
 nav{
   position:sticky;top:0;z-index:100;
   backdrop-filter:blur(14px);
@@ -82,16 +82,15 @@ h1 .grad{
 .btn-ghost:hover{background:#fff}
 .hero-art{position:relative;display:flex;justify-content:center;align-items:center;min-height:460px}
 .foki{
-  width: auto;       /* Dejamos que el alto controle el ancho proporcional */
-  height: 500px;     /* Aumentamos considerablemente el alto de la imagen */
-  max-width: none;   /* Quitamos la restricción anterior */
+  width: auto;     
+  height: 500px;     
+  max-width: none;  
   z-index:3;
   filter:drop-shadow(0 30px 40px rgba(76,45,141,.4));
 }
 
-/* Ajuste responsivo para pantallas medianas */
 @media(max-width:900px){
-  .foki{ height: 400px; } /* Reducimos ligeramente en tabletas */
+  .foki{ height: 400px; } 
 }@media(max-width:900px){
   .hero-in{grid-template-columns:1fr;text-align:center}
   .lead{margin-left:auto;margin-right:auto}
@@ -99,13 +98,11 @@ h1 .grad{
   .hero-art{margin-top:20px;min-height:400px}
 }
 
-/* MARQUEE */
 .strip{background:var(--ink);padding:18px 0;overflow:hidden;white-space:nowrap}
 .strip .track{display:inline-flex;gap:50px;font-family:'Fredoka',sans-serif;font-size:20px;color:#fff}
 .strip .track span{opacity:.9;display:inline-flex;align-items:center;gap:12px}
 .strip .track span::after{content:"·";color:var(--accent);font-size:26px;line-height:0}
 
-/* SECTION SHELL */
 section{position:relative}
 .sec{padding:100px 0}
 .eyebrow{
@@ -160,26 +157,26 @@ section{position:relative}
   padding:60px 50px;
   box-shadow:var(--shadow);
   position:relative;
-  overflow: visible; /* Cambiado de 'hidden' a 'visible' para que Foki sobresalga */
+  overflow: visible; 
 }.team::before{content:"";position:absolute;bottom:-60px;left:-40px;width:220px;height:220px;border-radius:50%;background:rgba(223,169,255,.18)}
 .team .h2{color:#fff;position:relative}
 .team p{font-size:17.5px;line-height:1.7;opacity:.92;margin-top:18px;max-width:760px;position:relative}
 .team .foki-mini{
   position: absolute;
-  right: -130px;   /* Movemos la imagen hacia afuera de la tarjeta, a la derecha */
-  top: -80px;      /* Movemos la imagen hacia arriba para que sobresalga por encima */
-  width: 450px;    /* Aumentamos drásticamente el tamaño de la imagen */
+  right: -130px;   
+  top: -80px;     
+  width: 450px;   
   height: auto;
-  opacity: 1;      /* Subimos la opacidad para que sea más nítida */
-  pointer-events: none; /* Evita que la imagen interfiera con el texto si la tapa */
-  z-index: 10;     /* Aseguramos que esté por encima de la tarjeta */
-}/* Ocultamos el Foki gigante en móviles para que no tape el contenido */
+  opacity: 1;     
+  pointer-events: none; 
+  z-index: 10;     
+}
 @media(max-width:992px){
   .team .foki-mini{
-    display: none; /* O puedes cambiar el tamaño/posición: width: 150px; right: 20px; top: -50px; */
+    display: none; 
   }
 }
-/* CTA */
+
 .cta{padding:110px 0}
 .cta-card{
   background:linear-gradient(140deg,var(--purple),var(--purple-bright) 60%,var(--accent));
@@ -200,9 +197,17 @@ section{position:relative}
 /* footer */
 footer{background:var(--ink);color:#fff;padding:56px 0 34px}
 .foot-in{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:center}
-.foot-brand{display:flex;align-items:center;gap:12px}
-.foot-brand img{width:44px;height:44px}
-.foot-brand .logo-word{font-size:30px;color:#fff}
+/* Esto mantiene a la mascota en su tamaño correcto de 44x44 */
+.foot-brand img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.foot-brand .logo-img {
+  width: auto;
+  height: 32px;
+}.foot-brand .logo-word{font-size:30px;color:#fff}
 .foot-brand .logo-word b{color:var(--accent)}
 .foot-links{display:flex;gap:28px;flex-wrap:wrap}
 .foot-links a{opacity:.75;font-weight:600;font-size:15px;transition:.2s}
